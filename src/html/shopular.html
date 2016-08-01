@@ -25,10 +25,19 @@
                         <tr>
                             <th>Name</th>
                             <th>Price</th>
-                            <th>Quanity</th>
+                            <th>Quantity</th>
                             <th>Color</th>
                         </tr>
                     </thead>
+
+                    <tbody>
+                        <tr ng-repeat='item in inventory.inventory'>
+                            <td>{{item.name}}</td>
+                            <td>Price</td>
+                            <td>{{item.quantity}}</td>
+                            <td>{{item.color}}</td>
+                        </tr>
+                    </tbody>
                 </table>
 
             </section>
