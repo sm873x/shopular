@@ -1,0 +1,21 @@
+{
+  "name": "shopular",
+  "description": "week 7 intro to angular",
+  "main": "main.js",
+  "authors": [
+    "Stella Ma"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/sm873x/shopular",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/js/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.0"
+  }
+}
