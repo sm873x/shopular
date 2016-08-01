@@ -12,6 +12,31 @@
         <link href='/css/styles.css' rel='stylesheet' type='text/css'>
     </head>
     <body>
+        <header>
+            <h1>The Shop</h1>
+        </header>
+
+        <main>
+            <section  ng-controller='InventoryController as inventory'>
+                <h2>Item Inventory - Total Items: ({{inventory.inventory.length}})</h2>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Quanity</th>
+                            <th>Color</th>
+                        </tr>
+                    </thead>
+                </table>
+
+            </section>
+        </main>
+
+        <footer>
+            <p>Copyright 2016 The Shop</p>
+        </footer>
 
         <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js'></script>
         <script src='https://code.jquery.com/jquery-3.1.0.min.js'></script>
