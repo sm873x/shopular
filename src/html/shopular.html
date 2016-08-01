@@ -31,9 +31,11 @@
                     </thead>
 
                     <tbody>
-                        <tr ng-repeat='item in inventory.inventory'>
+                        <tr
+                            ng-class='{ discounted: item.discount }'
+                            ng-repeat='item in inventory.inventory'>
                             <td>{{item.name}}</td>
-                            <td>Price</td>
+                            <td>{{(item.price * (1 + inventory.tax)) - item.discount | currency}}</td>
                             <td>{{item.quantity}}</td>
                             <td>{{item.color}}</td>
                         </tr>
