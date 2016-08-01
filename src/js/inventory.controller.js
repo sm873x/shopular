@@ -1,13 +1,6 @@
 (function() {
     'use strict';
 
-    angular.module('shop', []); 
-
-})();
-
-(function() {
-    'use strict';
-
     angular.module('shop')
         .controller('InventoryController', InventoryController);
 
@@ -30,5 +23,3 @@
 
 
 })();
-
-//# sourceMappingURL=main.js.map
