@@ -18,13 +18,13 @@
 
         <main>
             <section ng-cloak ng-controller='InventoryController as inventory'>
-                <form class='addItems'>
+                <form novalidate class='addItem' name='addItem' ng-submit='inventory.addItem(inventory.newItem)'>
                     <h2>Add an item to your inventory:</h2>
-                    <input type='text' name='itemName' placeholder='Enter name' required>
-                    <input type='text' name='itemPrice' placeholder='Enter base price' required>
-                    <input type='text' name='itemQuantity' placeholder='Enter quantity' required>
-                    <input type='text' name='itemColor' placeholder='Enter color' required>
-                    <input type='text' name='itemDiscount' placeholder='Enter discount in dollars' required>
+                    <input type='text' ng-model='inventory.newItem.name' name='itemName' placeholder='Enter name' required>
+                    <input type='text' ng-model='inventory.newItem.price' name='itemPrice' placeholder='Enter base price' required>
+                    <input type='text' ng-model='inventory.newItem.quantity' name='itemQuantity' placeholder='Enter quantity' required>
+                    <input type='text' ng-model='inventory.newItem.color' name='itemColor' placeholder='Enter color' required>
+                    <input type='text' ng-model='inventory.newItem.discount' name='itemDiscount' placeholder='Enter discount in dollars' required>
                     <input type='submit' value='Add item'>
                 </form>
 

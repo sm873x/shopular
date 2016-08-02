@@ -20,9 +20,25 @@
     ];
 
     function InventoryController() {
+        var that = this;
+
         this.tax = 0.0575;
 
         this.inventory = inventory;
+
+        this.newItem = {};
+
+        this.addItem = function addItem(item) {
+            if (!item || !item.name) {
+                return null;
+            }
+
+            inventory.push(item);
+
+            that.newItem = {};
+
+            return item;
+        };
 
         this.getPrice = function getPrice(price, discount, tax) {
             return ((price * (1 + tax)) - discount);
