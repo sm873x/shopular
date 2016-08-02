@@ -20,26 +20,46 @@
             <section ng-cloak ng-controller='InventoryController as inventory'>
                 <h2>Add an item to your inventory:</h2>
                 <form novalidate class='addItem' name='addItem' ng-submit='inventory.addItem(inventory.newItem)'>
-                    <input type='text' ng-model='inventory.newItem.name' name='itemName' placeholder='Enter name' required>
-                    <p class='noInput' ng-show='addItem.itemName.$touched && !addItem.itemName.$valid'>
-                        You didn't enter an item name!
-                    </p>
-                    <input type='text' ng-model='inventory.newItem.price' name='itemPrice' placeholder='Enter base price' required>
-                    <p class='noInput' ng-show='addItem.itemPrice.$touched && !addItem.itemPrice.$valid'>
-                        You didn't enter an item price!
-                    </p>
-                    <input type='text' ng-model='inventory.newItem.quantity' name='itemQuantity' placeholder='Enter quantity' required>
-                    <p class='noInput' ng-show='addItem.itemQuantity.$touched && !addItem.itemQuantity.$valid'>
-                        You didn't enter an item quantity!
-                    </p>
-                    <input type='text' ng-model='inventory.newItem.color' name='itemColor' placeholder='Enter color' required>
-                    <p class='noInput' ng-show='addItem.itemColor.$touched && !addItem.itemColor.$valid'>
-                        You didn't enter an item color!
-                    </p>
-                    <input type='text' ng-model='inventory.newItem.discount' name='itemDiscount' placeholder='Enter discount in dollars' required>
-                    <p class='noInput' ng-show='addItem.itemDiscount.$touched && !addItem.itemDiscount.$valid'>
-                        You didn't enter an item discount in dollars!
-                    </p>
+                    <div class='form-group'>
+                        <label for='itemName' class='text-primary'>Name: </label>
+                        <input type='text' id='itemName' class='form-control' ng-model='inventory.newItem.name' name='itemName' placeholder='Enter name' required>
+                        <p class='noInput' ng-show='addItem.itemName.$touched && !addItem.itemName.$valid'>
+                            You didn't enter an item name!
+                        </p>
+                    </div>
+
+                    <div class='form-group'>
+                        <label for='itemPrice' class='text-primary'>Price: </label>
+                        <input type='text' id='itemPrice' class='form-control' ng-model='inventory.newItem.price' name='itemPrice' placeholder='Enter base price' required>
+                        <p class='noInput' ng-show='addItem.itemPrice.$touched && !addItem.itemPrice.$valid'>
+                            You didn't enter an item price!
+                        </p>
+                    </div>
+
+                    <div class='form-group'>
+                        <label for='itemQuantity' class='text-primary'>Quantity: </label>
+                        <input type='text' id='itemQuantity' class='form-control' ng-model='inventory.newItem.quantity' name='itemQuantity' placeholder='Enter quantity' required>
+                        <p class='noInput' ng-show='addItem.itemQuantity.$touched && !addItem.itemQuantity.$valid'>
+                            You didn't enter an item quantity!
+                        </p>
+                    </div>
+
+                    <div class='form-group'>
+                        <label for='itemColor' class='text-primary'>Color: </label>
+                        <input type='text' id='itemColor' class='form-control' ng-model='inventory.newItem.color' name='itemColor' placeholder='Enter color' required>
+                        <p class='noInput' ng-show='addItem.itemColor.$touched && !addItem.itemColor.$valid'>
+                            You didn't enter an item color!
+                        </p>
+                    </div>
+
+                    <div class='form-group'>
+                        <label for='itemDiscount' class='text-primary'>Discount: </label>
+                        <input type='text' id='itemDiscount' class='form-control' ng-model='inventory.newItem.discount' name='itemDiscount' placeholder='Enter discount in dollars' required>
+                        <p class='noInput' ng-show='addItem.itemDiscount.$touched && !addItem.itemDiscount.$valid'>
+                            You didn't enter an item discount in dollars!
+                        </p>
+                    </div>
+
                     <input type='submit' value='Add item'>
                 </form>
 

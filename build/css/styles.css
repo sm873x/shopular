@@ -4,9 +4,13 @@ header {
 main {
   text-align: center; }
 
-.addItem input {
+.addItem div {
   margin: 0 auto;
-  display: block; }
+  display: block;
+  padding: 1%; }
+  .addItem div input {
+    width: 25%;
+    display: inline; }
 
 .table {
   text-align: left;

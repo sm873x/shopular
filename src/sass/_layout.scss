@@ -6,9 +6,15 @@ main {
     text-align: center;
 }
 
-.addItem input {
+.addItem div {
     margin: 0 auto;
     display: block;
+    padding: 1%;
+
+    input {
+        width: 25%;
+        display: inline;
+    }
 }
 
 .table {

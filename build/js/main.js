@@ -37,10 +37,15 @@
 
         this.newItemId = 89274;
 
+        this.getPrice = function getPrice(price, discount, tax) {
+            return ((price * (1 + tax)) - discount);
+        };
+
         this.addItem = function addItem(item) {
             if (!item || !item.name) {
                 return null;
             }
+
             item.id = (that.newItemId + 1);
 
             inventory.push(item);
@@ -48,13 +53,10 @@
             that.newItem = {};
             that.newItemId = item.id;
             console.log(inventory);
+
             return item;
         };
 
-
-        this.getPrice = function getPrice(price, discount, tax) {
-            return ((price * (1 + tax)) - discount);
-        };
     }
 
 
