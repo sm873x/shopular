@@ -73,7 +73,7 @@ module.exports = function(grunt) {
                 tasks: [ 'jshint', 'test', 'concat' ]
             },
             html: {
-                files: [ 'src/html/**/*.html' ],
+                files: [ 'src/**/*.html' ],
                 tasks: [ 'copy:html' ]
             }
         }

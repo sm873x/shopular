@@ -17,7 +17,17 @@
         </header>
 
         <main>
-            <section  ng-controller='InventoryController as inventory'>
+            <section ng-cloak ng-controller='InventoryController as inventory'>
+                <form class='addItems'>
+                    <h2>Add an item to your inventory:</h2>
+                    <input type='text' name='itemName' placeholder='Enter name' required>
+                    <input type='text' name='itemPrice' placeholder='Enter base price' required>
+                    <input type='text' name='itemQuantity' placeholder='Enter quantity' required>
+                    <input type='text' name='itemColor' placeholder='Enter color' required>
+                    <input type='text' name='itemDiscount' placeholder='Enter discount in dollars' required>
+                    <input type='submit' value='Add item'>
+                </form>
+
                 <h2>Item Inventory - Total Items: <span class='text-info'>{{inventory.inventory.length}}</span></h2>
 
                 <table class='table table-striped'>
@@ -35,7 +45,7 @@
                             ng-repeat='item in inventory.inventory | orderBy:"quantity"'>
                             <td>{{item.name}}</td>
                             <td ng-class='{ discounted: item.discount }'>
-                                {{(item.price * (1 + inventory.tax)) - item.discount | currency}}
+                                {{inventory.getPrice(item.price, item.discount, inventory.tax) | currency}}
                                 <img class='sale' src='https://tiy-learn-content.s3.amazonaws.com/98350f05-sale_2.png'>
                             </td>
                             <td>{{item.quantity}}</td>

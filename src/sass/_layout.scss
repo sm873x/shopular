@@ -6,6 +6,11 @@ main {
     text-align: center;
 }
 
+.addItems input {
+    margin: 0 auto;
+    display: block;
+}
+
 .table {
     text-align: left;
     width: $tableWidth;
