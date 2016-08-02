@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAAA,MAAO;EACH,UAAU,EAAE,MAAM;;AAGtB,IAAK;EACD,UAAU,EAAE,MAAM;;AAGtB,MAAO;EACH,UAAU,EAAE,IAAI;EAChB,KAAK,ECVI,GAAG;EDWZ,MAAM,EAAE,MAAM;;AAGlB,MAAO;EACH,UAAU,ECbI,GAAG;;ACFrB,eAAgB;EACZ,OAAO,EAAE,IAAI;;AAGjB,KAAM;EACF,OAAO,EAAE,MAAM",
-"sources": ["../sass/_layout.scss","../sass/_variables.scss","../sass/_inventory.scss"],
-"names": [],
-"file": "styles.css"
-}

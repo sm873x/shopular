@@ -43,7 +43,7 @@ module.exports = function(grunt) {
         copy: {
             html: { //arbitrary target name, but nice to name what you're targeting if multiple
                 files: [
-                    { expand: true, cwd: 'src/', src: ['html/*.html'], dest: 'build/' }
+                    { expand: true, cwd: 'src/', src: ['*.html'], dest: 'build/' }
                 ]
             },
             vendorjs: {
