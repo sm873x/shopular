@@ -35,7 +35,7 @@
                             ng-repeat='item in inventory.inventory | orderBy:"quantity"'>
                             <td>{{item.name}}</td>
                             <td ng-class='{ discounted: item.discount }'>
-                                {{(item.price * (1 + inventory.tax)) - item.discount | currency}}
+                                {{inventory.getPrice(item.price, item.discount, inventory.tax) | currency}}
                                 <img class='sale' src='https://tiy-learn-content.s3.amazonaws.com/98350f05-sale_2.png'>
                             </td>
                             <td>{{item.quantity}}</td>

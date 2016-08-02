@@ -23,6 +23,10 @@
         this.tax = 0.0575;
 
         this.inventory = inventory;
+
+        this.getPrice = function getPrice(price, discount, tax) {
+            return ((price * (1 + tax)) - discount);
+        };
     }
 
 
