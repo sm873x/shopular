@@ -1,3 +1,21 @@
+header {
+  text-align: center; }
 
+main {
+  text-align: center; }
+
+.table {
+  text-align: left;
+  width: 80%;
+  margin: 0 auto; }
+
+footer {
+  margin-top: 10%; }
+
+.discounted img {
+  display: none; }
+
+.sale {
+  display: inline; }
 
 /*# sourceMappingURL=styles.css.map */

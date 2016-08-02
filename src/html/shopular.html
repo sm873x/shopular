@@ -18,9 +18,9 @@
 
         <main>
             <section  ng-controller='InventoryController as inventory'>
-                <h2>Item Inventory - Total Items: ({{inventory.inventory.length}})</h2>
+                <h2>Item Inventory - Total Items: <span class='text-info'>{{inventory.inventory.length}}</span></h2>
 
-                <table>
+                <table class='table table-striped'>
                     <thead>
                         <tr>
                             <th>Name</th>
@@ -34,7 +34,10 @@
                         <tr
                             ng-repeat='item in inventory.inventory'>
                             <td>{{item.name}}</td>
-                            <td ng-class='{ discounted: item.discount }'>{{(item.price * (1 + inventory.tax)) - item.discount | currency}}</td>
+                            <td ng-class='{ discounted: item.discount }'>
+                                {{(item.price * (1 + inventory.tax)) - item.discount | currency}}
+                                <img class='sale' src='https://tiy-learn-content.s3.amazonaws.com/98350f05-sale_2.png'>
+                            </td>
                             <td>{{item.quantity}}</td>
                             <td>{{item.color}}</td>
                         </tr>
@@ -55,7 +58,6 @@
                 document.write(unescape('%3Cscript src="/js/vendor/jquery/dist/jquery.min.js">%3C/script>'));
             }
         </script>
-
 
         <script src='/js/main.js'></script>
 
