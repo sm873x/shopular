@@ -11,6 +11,54 @@
     angular.module('shop')
         .controller('InventoryController', InventoryController);
 
+    var tax = 0.0575;
+
+    InventoryController.$inject = ['localStor'];
+
+    function getPrice(item) {
+        return (item.price - item.discount) * (1 + tax);
+    }
+
+    function InventoryController(theLocalStorService) {
+        var that = this;
+
+        this.orderByField = 'price';
+        this.reverseSort = false;
+
+        this.tax = tax;
+        this.getPrice = getPrice;
+
+        this.inventory = theLocalStorService.getAll();
+
+        this.newItem = {};
+
+        this.addItem = function addItem (item) {
+            console.log(item);
+            that.newItem = theLocalStorService.saveItem(item);
+            console.log(that.newItem);
+        };
+
+        // that.newItem = {};
+
+    }
+
+
+})();
+
+(function() {
+    'use strict';
+
+    angular.module('shop')
+        .factory('localStor', LocalStorService);
+
+    function LocalStorService() {
+        return {
+            getAll: getAll,
+            saveItem: saveItem,
+            // updateAll: updateAll
+        };
+    }
+
     var inventory = [
         { 'id': 2957, 'name': 'widget', 'price': 32, 'quantity': 203, 'color': 'red', 'discount': 31 },
         { 'id': 89274, 'name': 'golf club', 'price': 98, 'quantity': 10, 'color': 'black', 'discount': 0 },
@@ -26,69 +74,43 @@
         { 'id': 683, 'name': 'pillow', 'price': 27, 'quantity': 10, 'color': 'black', 'discount': 12 }
     ];
 
-    var tax = 0.0575;
+    var newItemId = 89275;
 
-    function getPrice(item) {
-        return (item.price - item.discount) * (1 + tax);
+    function getAll() {
+        return inventory;
     }
 
-    function InventoryController() {
-        var that = this;
+    function saveItem(item) {
+        if (!item || !item.name) {
+            return null;
+        }
+        if (!item.quantity) {
+            item.quantity = 0;
+        }
+        if (!item.price) {
+            item.price = 0;
+        }
+        if (!item.discount) {
+            item.discount = 0;
+        }
+        if(!item.color) {
+            item.color = 'n/a';
+        }
 
-        this.orderByField = 'price';
-        this.reverseSort = false;
-
-        this.tax = tax;
-
-        this.inventory = inventory;
-
-        this.newItem = {};
-
-        this.newItemId = 89274;
-
-        this.getPrice = getPrice;
-
-        this.addItem = function addItem(item) {
-            if (!item || !item.name) {
-                return null;
-            }
-            if (!item.quantity) {
-                item.quantity = 0;
-            }
-            if (!item.price) {
-                item.price = 0;
-            }
-            if (!item.discount) {
-                item.discount = 0;
-            }
-            if(!item.color) {
-                item.color = 'n/a';
-            }
-
-            item.id = (that.newItemId + 1);
-
-            inventory.push(item);
-
-            that.newItem = {};
-            that.newItemId = item.id;
-            console.log(inventory);
-
-            return item;
+        var data = {
+            id: newItemId,
+            name: item.name,
+            price: item.price || 0,
+            quantity: item.quantity || 0,
+            color: item.color || 'n/a',
+            discount: item.discount || 0
         };
 
-    }
+        newItemId++;
 
+        inventory.push(data);
 
-})();
-
-(function() {
-    'use strict';
-
-    angular.module('shop')
-        .factory('local', LocalService);
-
-    function LocalService() {
-        return {};
+        return data;
     }
 
 })();
