@@ -76,10 +76,6 @@
             return item;
         };
 
-        this.resetForm = function resetForm() {
-            this.addItem.$setPristine();
-            this.addItem.$setUntouched();
-        };
     }
 
 

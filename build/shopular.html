@@ -28,7 +28,7 @@
                         <label for='itemName' class='text-primary'>Name: </label>
                         <input type='text' id='itemName' class='form-control'
                         ng-model='inventory.newItem.name' name='itemName' placeholder='Enter name' required>
-                        <p class='noInput' ng-show='addItem.itemName.$touched && !addItem.itemName.$valid'>
+                        <p class='invalidInput' ng-show='addItem.itemName.$touched && !addItem.itemName.$valid'>
                             You didn't enter an item name!
                         </p>
                     </div>
@@ -39,10 +39,10 @@
                         name='itemPrice' placeholder='Enter base price' min='0' required>
 
                         <div ng-show='addItem.itemPrice.$touched && addItem.itemPrice.$valid'>
-                            <p class='noInput' ng-show='addItem.itemPrice.$error.min'>
+                            <p class='invalidInput' ng-show='addItem.itemPrice.$error.min'>
                                 Item price cannot be less than $0.00
                             </p>
-                            <p class='noInput' ng-show='addItem.itemPrice.$error.required'>
+                            <p class='invalidInput' ng-show='addItem.itemPrice.$error.required'>
                                 You didn't enter an item price!
                             </p>
                         </div>
@@ -54,10 +54,10 @@
                         ng-model='inventory.newItem.quantity' name='itemQuantity'
                         placeholder='Enter quantity' min='0' required>
                         <div ng-show='addItem.itemQuantity.$touched && addItem.itemQuantity.$valid'>
-                            <p class='noInput' ng-show='addItem.itemQuantity.$error.min'>
+                            <p class='invalidInput' ng-show='addItem.itemQuantity.$error.min'>
                                 Item quantity cannot be less than 0
                             </p>
-                            <p class='noInput' ng-show='addItem.itemQuantity.$error.required'>
+                            <p class='invalidInput' ng-show='addItem.itemQuantity.$error.required'>
                                 You didn't enter an item quantity!
                             </p>
                         </div>
@@ -68,7 +68,7 @@
                         <input type='text' id='itemColor' class='form-control'
                         ng-model='inventory.newItem.color' name='itemColor'
                         placeholder='Enter color' required>
-                        <p class='noInput' ng-show='addItem.itemColor.$touched
+                        <p class='invalidInput' ng-show='addItem.itemColor.$touched
                         && !addItem.itemColor.$valid'>
                             You didn't enter an item color!
                         </p>
@@ -79,7 +79,7 @@
                         <input type='text' id='itemDiscount' class='form-control'
                         ng-model='inventory.newItem.discount' name='itemDiscount'
                         placeholder='Enter discount in dollars' required>
-                        <p class='noInput' ng-show='addItem.itemDiscount.$touched
+                        <p class='invalidInput' ng-show='addItem.itemDiscount.$touched
                         && !addItem.itemDiscount.$valid'>
                             You didn't enter an item discount in dollars!
                         </p>

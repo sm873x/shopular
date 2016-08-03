@@ -29,7 +29,7 @@ footer {
 [ng-cloak], .ng-cloak {
   display: none; }
 
-input.ng-touched.ng-invalid.ng-error {
+input.ng-touched.ng-invalid {
   background-color: #f7a1a9; }
 
 /*# sourceMappingURL=styles.css.map */
