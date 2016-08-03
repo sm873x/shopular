@@ -95,10 +95,10 @@
                 <table class='table table-striped'>
                     <thead>
                         <tr>
-                            <th ng-click='inventory.orderByField="name"; inventory.reverseSort = !inventory.reverseSort'>Name</th>
-                            <th ng-click='inventory.orderByField="price"; inventory.reverseSort = !inventory.reverseSort'>Price</th>
-                            <th ng-click='inventory.orderByField="quantity"; inventory.reverseSort = !inventory.reverseSort'>Quantity</th>
-                            <th ng-click='inventory.orderByField="color"; inventory.reverseSort = !inventory.reverseSort'>Color</th>
+                            <th ng-click='inventory.sorting("name")'>Name</th>
+                            <th ng-click='inventory.sorting("price")'>Price</th>
+                            <th ng-click='inventory.sorting("quantity")'>Quantity</th>
+                            <th ng-click='inventory.sorting("color")'>Color</th>
                         </tr>
                     </thead>
 
@@ -107,9 +107,14 @@
                             ng-repeat='item in inventory.inventory |
                             orderBy: inventory.orderByField : inventory.reverseSort'>
                             <td>{{item.name}}</td>
-                            <td ng-class='{ discounted: item.discount > 0 }'>
+                            <td>
                                 {{inventory.getPrice(item) | currency}}
-                                <img class='sale' src='https://tiy-learn-content.s3.amazonaws.com/98350f05-sale_2.png'>
+
+                                <img
+                                    class='sale'
+                                    ng-show='item.discount > 0'
+                                    src='https://tiy-learn-content.s3.amazonaws.com/98350f05-sale_2.png'>
+
                             </td>
                             <td>{{item.quantity}}</td>
                             <td>{{item.color}}</td>

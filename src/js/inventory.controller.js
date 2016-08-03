@@ -24,9 +24,15 @@
 
         this.inventory = theLocalStorService.getAll();
 
-        this.orderByField = 'price';
+        this.orderByField = 'price - discount';
         this.reverseSort = false;
-        
+        this.sorting = function sorting(orderByField) {
+            that.orderByField = orderByField;
+            that.reverseSort = !that.reverseSort;
+            return that.reverseSort;
+        };
+
+
         this.newItem = {};
         this.addItem = function addItem (item) {
             that.newItem = theLocalStorService.saveItem(item);
