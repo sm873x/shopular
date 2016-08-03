@@ -98,12 +98,11 @@
             discount: item.discount || 0
         };
 
-        inventory = inventory.push(data);
+        inventory.push(data);
 
-        localStorage.setItem('inventory', JSON.stringify(inventory));
-        console.log('second', inventory);
+        localStorage.setItem('inventory', angular.toJson(inventory));
 
-        newItemId = (newItemId + 1);
+        newItemId++;
 
         return data;
     }
@@ -124,5 +123,6 @@
 //     { 'id': 533, 'name': 'eggs', 'price': 5, 'quantity': 12, 'color': 'brown', 'discount': 1 },
 //     { 'id': 683, 'name': 'pillow', 'price': 27, 'quantity': 10, 'color': 'black', 'discount': 12 }
 // ]
+
 
 //# sourceMappingURL=main.js.map

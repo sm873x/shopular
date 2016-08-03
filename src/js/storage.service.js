@@ -46,12 +46,11 @@
             discount: item.discount || 0
         };
 
-        inventory = inventory.push(data);
+        inventory.push(data);
 
-        localStorage.setItem('inventory', JSON.stringify(inventory));
-        console.log('second', inventory);
+        localStorage.setItem('inventory', angular.toJson(inventory));
 
-        newItemId = (newItemId + 1);
+        newItemId++;
 
         return data;
     }
