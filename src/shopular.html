@@ -6,12 +6,18 @@
 
         <meta name='description' content='Shopular inventory app'>
         <meta name='author' content='Stella Ma'>
-        <meta name='viewport' content='width=device-width, initial-scale=1.0,
-        minimum-scale=1.0, maximum-scale=1.0, user-scalable=no'>
+        <meta
+            name='viewport'
+            content='width=device-width, initial-scale=1.0, minimum-scale=1.0,
+                maximum-scale=1.0, user-scalable=no'>
 
-        <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'
-        rel='stylesheet' type='text/css' integrity='sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7'
-        crossorigin='anonymous'>
+        <link
+            href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'
+            rel='stylesheet'
+            type='text/css'
+            integrity='sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7'
+            crossorigin='anonymous'>
+
         <link href='/css/styles.css' rel='stylesheet' type='text/css'>
     </head>
     <body>
@@ -22,21 +28,39 @@
         <main>
             <section ng-cloak ng-controller='InventoryController as inventory'>
                 <h2>Add an item to your inventory:</h2>
-                <form novalidate class='addItem' name='addItem' ng-submit='addItem.$valid
-                && inventory.addItem(inventory.newItem)'>
+                <form
+                    novalidate
+                    class='addItem'
+                    name='addItem'
+                    ng-submit='addItem.$valid && inventory.addItem(inventory.newItem)'>
                     <div class='form-group'>
                         <label for='itemName' class='text-primary'>Name: </label>
-                        <input type='text' id='itemName' class='form-control'
-                        ng-model='inventory.newItem.name' name='itemName' placeholder='Enter name' required>
-                        <p class='invalidInput' ng-show='addItem.itemName.$touched && !addItem.itemName.$valid'>
+                        <input
+                            type='text'
+                            id='itemName'
+                            class='form-control'
+                            ng-model='inventory.newItem.name'
+                            name='itemName'
+                            placeholder='Enter name'
+                            required>
+                        <p
+                            class='invalidInput'
+                            ng-show='addItem.itemName.$touched && !addItem.itemName.$valid'>
                             You didn't enter an item name!
                         </p>
                     </div>
 
                     <div class='form-group'>
                         <label for='itemPrice' class='text-primary'>Price: </label>
-                        <input type='text' id='itemPrice' class='form-control' ng-model='inventory.newItem.price'
-                        name='itemPrice' placeholder='Enter base price' min='0' required>
+                        <input
+                            type='text'
+                            id='itemPrice'
+                            class='form-control'
+                            ng-model='inventory.newItem.price'
+                            name='itemPrice'
+                            placeholder='Enter base price'
+                            min='0'
+                            required>
 
                         <div ng-show='addItem.itemPrice.$touched && addItem.itemPrice.$valid'>
                             <p class='invalidInput' ng-show='addItem.itemPrice.$error.min'>
@@ -50,14 +74,22 @@
 
                     <div class='form-group'>
                         <label for='itemQuantity' class='text-primary'>Quantity: </label>
-                        <input type='text' id='itemQuantity' class='form-control'
-                        ng-model='inventory.newItem.quantity' name='itemQuantity'
-                        placeholder='Enter quantity' min='0' required>
+                        <input
+                            type='text'
+                            id='itemQuantity'
+                            class='form-control'
+                            ng-model='inventory.newItem.quantity'
+                            name='itemQuantity'
+                            placeholder='Enter quantity'
+                            min='0'
+                            required>
                         <div ng-show='addItem.itemQuantity.$touched && addItem.itemQuantity.$valid'>
                             <p class='invalidInput' ng-show='addItem.itemQuantity.$error.min'>
                                 Item quantity cannot be less than 0
                             </p>
-                            <p class='invalidInput' ng-show='addItem.itemQuantity.$error.required'>
+                            <p
+                                class='invalidInput'
+                                ng-show='addItem.itemQuantity.$error.required'>
                                 You didn't enter an item quantity!
                             </p>
                         </div>
@@ -65,22 +97,34 @@
 
                     <div class='form-group'>
                         <label for='itemColor' class='text-primary'>Color: </label>
-                        <input type='text' id='itemColor' class='form-control'
-                        ng-model='inventory.newItem.color' name='itemColor'
-                        placeholder='Enter color' required>
-                        <p class='invalidInput' ng-show='addItem.itemColor.$touched
-                        && !addItem.itemColor.$valid'>
+                        <input
+                            type='text'
+                            id='itemColor'
+                            class='form-control'
+                            ng-model='inventory.newItem.color'
+                            name='itemColor'
+                            placeholder='Enter color'
+                            required>
+                        <p
+                            class='invalidInput'
+                            ng-show='addItem.itemColor.$touched && !addItem.itemColor.$valid'>
                             You didn't enter an item color!
                         </p>
                     </div>
 
                     <div class='form-group'>
                         <label for='itemDiscount' class='text-primary'>Discount: </label>
-                        <input type='text' id='itemDiscount' class='form-control'
-                        ng-model='inventory.newItem.discount' name='itemDiscount'
-                        placeholder='Enter discount in dollars' required>
-                        <p class='invalidInput' ng-show='addItem.itemDiscount.$touched
-                        && !addItem.itemDiscount.$valid'>
+                        <input
+                            type='text'
+                            id='itemDiscount'
+                            class='form-control'
+                            ng-model='inventory.newItem.discount'
+                            name='itemDiscount'
+                            placeholder='Enter discount in dollars'
+                            required>
+                        <p
+                            class='invalidInput'
+                            ng-show='addItem.itemDiscount.$touched && !addItem.itemDiscount.$valid'>
                             You didn't enter an item discount in dollars!
                         </p>
                     </div>
