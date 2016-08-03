@@ -19,13 +19,19 @@
         { 'id': 683, 'name': 'pillow', 'price': 27, 'quantity': 10, 'color': 'black', 'discount': 12 }
     ];
 
+    var tax = 0.0575;
+
+    function getPrice(item) {
+        return (item.price - item.discount) * (1 + tax);
+    }
+
     function InventoryController() {
         var that = this;
 
         this.orderByField = 'price';
         this.reverseSort = false;
 
-        this.tax = 0.0575;
+        this.tax = tax;
 
         this.inventory = inventory;
 
@@ -33,13 +39,23 @@
 
         this.newItemId = 89274;
 
-        this.getPrice = function getPrice(price, discount, tax) {
-            return ((price * (1 + tax)) - discount);
-        };
+        this.getPrice = getPrice;
 
         this.addItem = function addItem(item) {
             if (!item || !item.name) {
                 return null;
+            }
+            if (!item.quantity) {
+                item.quantity = 0;
+            }
+            if (!item.price) {
+                item.price = 0;
+            }
+            if (!item.discount) {
+                item.discount = 0;
+            }
+            if(!item.color) {
+                item.color = 'n/a';
             }
 
             item.id = (that.newItemId + 1);
