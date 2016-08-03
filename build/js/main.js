@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    angular.module('shop', []); 
+    angular.module('shop', []);
 
 })();
 
@@ -10,6 +10,10 @@
 
     angular.module('shop')
         .controller('InventoryController', InventoryController);
+
+    // window.addEventListener('load', function remPrevInventory(){
+    //     localStorage.removeItem('inventory');
+    // });
 
     var tax = 0.0575;
 
@@ -25,13 +29,12 @@
         this.tax = tax;
         this.getPrice = getPrice;
 
-        this.orderByField = 'price';
-        this.reverseSort = false;
-
         this.inventory = theLocalStorService.getAll();
 
+        this.orderByField = 'price';
+        this.reverseSort = false;
+        
         this.newItem = {};
-
         this.addItem = function addItem (item) {
             that.newItem = theLocalStorService.saveItem(item);
             that.newItem = {};
@@ -74,6 +77,7 @@
     var newItemId = 89275;
 
     function getAll() {
+        localStorage.setItem('inventory', JSON.stringify(inventory));
         return inventory;
     }
 
@@ -106,7 +110,7 @@
         newItemId++;
 
         inventory.push(data);
-
+        localStorage.setItem('inventory', JSON.stringify(inventory));
         return data;
     }
 

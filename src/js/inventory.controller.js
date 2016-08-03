@@ -4,6 +4,10 @@
     angular.module('shop')
         .controller('InventoryController', InventoryController);
 
+    // window.addEventListener('load', function remPrevInventory(){
+    //     localStorage.removeItem('inventory');
+    // });
+
     var tax = 0.0575;
 
     InventoryController.$inject = ['localStor'];
@@ -18,13 +22,12 @@
         this.tax = tax;
         this.getPrice = getPrice;
 
-        this.orderByField = 'price';
-        this.reverseSort = false;
-
         this.inventory = theLocalStorService.getAll();
 
+        this.orderByField = 'price';
+        this.reverseSort = false;
+        
         this.newItem = {};
-
         this.addItem = function addItem (item) {
             that.newItem = theLocalStorService.saveItem(item);
             that.newItem = {};

@@ -30,6 +30,7 @@
     var newItemId = 89275;
 
     function getAll() {
+        localStorage.setItem('inventory', JSON.stringify(inventory));
         return inventory;
     }
 
@@ -62,7 +63,7 @@
         newItemId++;
 
         inventory.push(data);
-
+        localStorage.setItem('inventory', JSON.stringify(inventory));
         return data;
     }
 
