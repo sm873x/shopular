@@ -22,6 +22,9 @@
     function InventoryController() {
         var that = this;
 
+        this.orderByField = 'price';
+        this.reverseSort = false;
+
         this.tax = 0.0575;
 
         this.inventory = inventory;
@@ -50,6 +53,10 @@
             return item;
         };
 
+        this.resetForm = function resetForm() {
+            this.addItem.$setPristine();
+            this.addItem.$setUntouched();
+        };
     }
 
 

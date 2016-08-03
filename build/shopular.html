@@ -19,7 +19,7 @@
         <main>
             <section ng-cloak ng-controller='InventoryController as inventory'>
                 <h2>Add an item to your inventory:</h2>
-                <form novalidate class='addItem' name='addItem' ng-submit='inventory.addItem(inventory.newItem)'>
+                <form novalidate class='addItem' name='addItem' ng-submit='inventory.addItem(inventory.newItem) && resetForm()'>
                     <div class='form-group'>
                         <label for='itemName' class='text-primary'>Name: </label>
                         <input type='text' id='itemName' class='form-control' ng-model='inventory.newItem.name' name='itemName' placeholder='Enter name' required>
@@ -60,7 +60,7 @@
                         </p>
                     </div>
 
-                    <input type='submit' value='Add item'>
+                    <input class='btn btn-default' type='submit' value='Add item'>
                 </form>
 
                 <h2>Item Inventory - Total Items: <span class='text-info'>{{inventory.inventory.length}}</span></h2>
@@ -68,16 +68,16 @@
                 <table class='table table-striped'>
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
-                            <th>Color</th>
+                            <th ng-click='orderByField="name"; reverseSort = !reverseSort'>Name</th>
+                            <th ng-click='orderByField="price"; reverseSort = !reverseSort'>Price</th>
+                            <th ng-click='orderByField="quantity"; reverseSort = !reverseSort'>Quantity</th>
+                            <th ng-click='orderByField="color"; reverseSort = !reverseSort'>Color</th>
                         </tr>
                     </thead>
 
                     <tbody>
                         <tr
-                            ng-repeat='item in inventory.inventory | orderBy:"price"'>
+                            ng-repeat='item in inventory.inventory | orderBy:orderByField:reverseSort'>
                             <td>{{item.name}}</td>
                             <td ng-class='{ discounted: item.discount }'>
                                 {{inventory.getPrice(item.price, item.discount, inventory.tax) | currency}}

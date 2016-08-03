@@ -1,6 +1,6 @@
 [ng-cloak], .ng-cloak {
     display: none;
 }
-input.ng-touched.ng-invalid {
+input.ng-touched.ng-invalid.ng-error {
     background-color: #f7a1a9;
 }
