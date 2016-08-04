@@ -8,19 +8,13 @@
     function UserService() {
         return {
             login: login,
-            // allUsers: allUsers,
-            // getUser: getUser
+            // loggedIn: loggedIn
         };
     }
 
     var users = [{id: 1, username: 'sm873x', name: 'stella', loginTime: '', loggedIn: false }];
 
-    // var nextId = 1;
-    //id: 1, username: sm873x, name: 'stella', loginTime: ''
-
-    // function allUsers() {
-    //     return users;
-    // }
+    var nextId = 1;
 
     function login(username) {
         var foundUser = null;
@@ -35,8 +29,11 @@
             }
         });
 
+        foundUser.id = nextId;
         foundUser.loggedIn = true;
         foundUser.loginTime = new Date().getTime();
+
+        nextId++;
         console.log(foundUser);
         return foundUser;
     }
