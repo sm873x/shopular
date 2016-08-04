@@ -30,11 +30,22 @@
                     name='loginUser'
                     ng-submit='log.logUser(log.username)'>
                         <label for='username'>Username: </label>
-                        <input type='text' name='username' id='username' ng-model='log.username' placeholder='Enter username' required>
+                        <input
+                            type='text'
+                            name='username'
+                            id='username'
+                            ng-model='log.username'
+                            placeholder='Enter username'
+                            required>
                         <input type='submit' value='Login'>
                 </form>
 
-                <p>Hello <span>{{log.user.name}}</span>, you logged in today at <span>{{log.user.loginTime | date:'MMM dd - h:mma'}}</span></p>
+                <h3 ng-cloak>
+                    Hello
+                    <span class='text-success'>{{log.user.name}}</span>
+                    , you logged in on
+                    <span class='text-success'>{{log.user.loginTime | date:'MMM dd - h:mma'}}</span>
+                </h3>
             </section>
         </header>
 
