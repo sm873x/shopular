@@ -164,7 +164,7 @@
         };
     }
 
-    var users = [{id: 1, username: 'sm873x', name: 'stella', loginTime: '' }];
+    var users = [{id: 1, username: 'sm873x', name: 'stella', loginTime: '', loggedIn: false }];
 
     // var nextId = 1;
     //id: 1, username: sm873x, name: 'stella', loginTime: ''
@@ -186,6 +186,9 @@
             }
         });
 
+        foundUser.loggedIn = true;
+        foundUser.loginTime = new Date().getTime();
+        console.log(foundUser);
         return foundUser;
     }
 

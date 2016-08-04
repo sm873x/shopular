@@ -34,7 +34,7 @@
                         <input type='submit' value='Login'>
                 </form>
 
-                <p>Hello <span>{{log.user.name}}</span>, you logged in today at <span></span></p>
+                <p>Hello <span>{{log.user.name}}</span>, you logged in today at <span>{{log.user.loginTime | date:'MMM dd - h:mma'}}</span></p>
             </section>
         </header>
 
