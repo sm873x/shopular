@@ -23,14 +23,19 @@
     <body>
         <header>
             <h1>The Shop</h1>
+            <section ng-controller='LoginController as log'>
+                <form
+                    novalidate
+                    class='login'
+                    name='loginUser'
+                    ng-submit='log.logUser(log.username)'>
+                        <label for='username'>Username: </label>
+                        <input type='text' name='username' id='username' ng-model='log.username' placeholder='Enter username' required>
+                        <input type='submit' value='Login'>
+                </form>
 
-            <form >
-                <label for='username'>Username: </label>
-                <input type='text' name='username' id='username' placeholder='Enter username'>
-                <input type='submit' value='Login'>
-            </form>
-
-            <p>Hello <span></span>, you logged in today at <span></span></p>
+                <p>Hello <span>{{log.user.name}}</span>, you logged in today at <span></span></p>
+            </section>
         </header>
 
         <main>

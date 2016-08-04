@@ -8,6 +8,7 @@
     function UserService() {
         return {
             login: login,
+            // allUsers: allUsers,
             // getUser: getUser
         };
     }
@@ -16,6 +17,10 @@
 
     // var nextId = 1;
     //id: 1, username: sm873x, name: 'stella', loginTime: ''
+
+    // function allUsers() {
+    //     return users;
+    // }
 
     function login(username) {
         var foundUser = null;

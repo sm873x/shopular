@@ -54,6 +54,31 @@
     'use strict';
 
     angular.module('shop')
+        .controller('LoginController', LoginController);
+
+    LoginController.$inject = ['user'];
+
+    function LoginController(UserService) {
+        var that = this;
+
+        this.username = null;
+
+        this.user = {};
+
+        this.logUser = function logUser(username) {
+            that.user = UserService.login(username);
+        };
+
+
+
+    }
+
+})();
+
+(function() {
+    'use strict';
+
+    angular.module('shop')
         .factory('localStor', LocalStorService);
 
     function LocalStorService() {
@@ -134,6 +159,7 @@
     function UserService() {
         return {
             login: login,
+            // allUsers: allUsers,
             // getUser: getUser
         };
     }
@@ -142,6 +168,10 @@
 
     // var nextId = 1;
     //id: 1, username: sm873x, name: 'stella', loginTime: ''
+
+    // function allUsers() {
+    //     return users;
+    // }
 
     function login(username) {
         var foundUser = null;
