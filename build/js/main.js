@@ -58,6 +58,10 @@
 
     LoginController.$inject = ['user'];
 
+    // window.addEventListener('load', function findLoggedInUser(){
+    //     localStorage.removeItem('inventory');
+    // });
+
     function LoginController(UserService) {
         var that = this;
 
@@ -67,8 +71,8 @@
 
         this.logUser = function logUser(username) {
             that.user = UserService.login(username);
+            that.username = ''; 
         };
-
 
 
     }
@@ -159,11 +163,11 @@
     function UserService() {
         return {
             login: login,
-            // loggedIn: loggedIn
+            loggedIn: loggedIn
         };
     }
 
-    var users = [{username: 'sm873x', name: 'stella', loginTime: '', loggedIn: false }];
+    var users = JSON.parse(localStorage.getItem('users'));
 
     function login(username) {
         var foundUser = null;
@@ -180,14 +184,29 @@
 
         foundUser.loggedIn = true;
         foundUser.loginTime = new Date().getTime();
-    
+
         console.log(foundUser);
         return foundUser;
     }
 
+    function loggedIn(username) {
+        var loggedUser = null;
+
+        if (!username) {
+            return null;
+        }
+
+        users.forEach(function findLoggedUser(user) {
+            if (user.loggedIn === true) {
+                loggedUser = user;
+            }
+        });
+
+        return loggedUser;
+    }
 
 })();
 
-// ]
+// [{username: 'sm873x', name: 'stella', loginTime: '', loggedIn: false }]
 
 //# sourceMappingURL=main.js.map
