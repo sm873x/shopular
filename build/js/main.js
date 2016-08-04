@@ -23,17 +23,17 @@
         return (item.price - item.discount) * (1 + tax);
     }
 
-    function InventoryController(theLocalStorService) {
+    function InventoryController(LocalStorService) {
         var that = this;
 
         this.tax = tax;
         this.getPrice = getPrice;
 
-        this.inventory = theLocalStorService.getAll();
+        this.inventory = LocalStorService.getAll();
 
         this.newItem = {};
         this.addItem = function addItem (item) {
-            that.newItem = theLocalStorService.saveItem(item);
+            that.newItem = LocalStorService.saveItem(item);
             that.newItem = {};
         };
 
@@ -124,5 +124,44 @@
 //     { 'id': 683, 'name': 'pillow', 'price': 27, 'quantity': 10, 'color': 'black', 'discount': 12 }
 // ]
 
+(function() {
+
+    'use strict';
+
+    angular.module('shop')
+        .factory('user', UserService);
+
+    function UserService() {
+        return {
+            login: login,
+            // getUser: getUser
+        };
+    }
+
+    var users = [{id: 1, username: 'sm873x', name: 'stella', loginTime: '' }];
+
+    // var nextId = 1;
+    //id: 1, username: sm873x, name: 'stella', loginTime: ''
+
+    function login(username) {
+        var foundUser = null;
+
+        if (!username || typeof(username) !== 'string') {
+            return foundUser;
+        }
+
+        users.forEach(function getUser(user) {
+            if (user.username === username) {
+                foundUser = user;
+            }
+        });
+
+        return foundUser;
+    }
+
+
+})();
+
+// ]
 
 //# sourceMappingURL=main.js.map

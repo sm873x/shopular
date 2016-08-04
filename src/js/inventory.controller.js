@@ -16,17 +16,17 @@
         return (item.price - item.discount) * (1 + tax);
     }
 
-    function InventoryController(theLocalStorService) {
+    function InventoryController(LocalStorService) {
         var that = this;
 
         this.tax = tax;
         this.getPrice = getPrice;
 
-        this.inventory = theLocalStorService.getAll();
+        this.inventory = LocalStorService.getAll();
 
         this.newItem = {};
         this.addItem = function addItem (item) {
-            that.newItem = theLocalStorService.saveItem(item);
+            that.newItem = LocalStorService.saveItem(item);
             that.newItem = {};
         };
 
